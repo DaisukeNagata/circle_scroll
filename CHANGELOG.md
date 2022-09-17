@@ -4,3 +4,6 @@
 
 ## 0.0.2
 * update documet -> gif, homepage
+
+## 0.0.3
+* update documet -> environment
