@@ -14,7 +14,7 @@ class CircleScrollAllAreaExpansion extends StatelessWidget {
     required this.valueList,
     required this.offSetList,
     required this.animation,
-    required this.call,
+    required this.callBack,
   });
   final Widget w;
   final Color color;
@@ -26,7 +26,7 @@ class CircleScrollAllAreaExpansion extends StatelessWidget {
   final List<double> valueList;
   final List<Offset> offSetList;
   final Animation<double> animation;
-  final Function(List<dynamic>) call;
+  final Function(List<dynamic>) callBack;
 
   @override
   Widget build(BuildContext context) {
@@ -64,8 +64,8 @@ class CircleScrollAllAreaExpansion extends StatelessWidget {
                   painter: CircleScroll(
                     valueList: valueList,
                     c: animation,
-                    call: (off) async {
-                      call.call([off]);
+                    callBack: (off) async {
+                      callBack.call([off]);
                     },
                   ),
                 ),
@@ -76,7 +76,7 @@ class CircleScrollAllAreaExpansion extends StatelessWidget {
                       size2Matrix.width / 2, size2Matrix.height / 2, 0),
                   child: GestureDetector(
                     onTap: () {
-                      call.call([offSetList, i]);
+                      callBack.call([offSetList, i]);
                     },
                     child: Container(
                       padding: EdgeInsets.only(

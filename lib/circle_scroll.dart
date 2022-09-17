@@ -7,12 +7,12 @@ class CircleScroll extends CustomPainter {
   const CircleScroll({
     super.repaint,
     required this.valueList,
-    required this.call,
+    required this.callBack,
     required this.c,
   });
 
   final List<double> valueList;
-  final Function(List<Offset>) call;
+  final Function(List<Offset>) callBack;
   final Animation<double> c;
 
   @override
@@ -29,7 +29,7 @@ class CircleScroll extends CustomPainter {
       );
       offsetList.add(Offset(circleOffset.dx, circleOffset.dy));
     }
-    call.call(offsetList);
+    callBack.call(offsetList);
   }
 
   @override

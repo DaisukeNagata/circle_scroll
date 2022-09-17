@@ -59,7 +59,7 @@ class CircleScrollAreaExpansion extends StatelessWidget {
                   painter: CircleScroll(
                     valueList: valueList,
                     c: animation,
-                    call: (off) async {
+                    callBack: (off) async {
                       call.call([off]);
                     },
                   ),

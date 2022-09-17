@@ -208,7 +208,7 @@ class _ExampleState3 extends State<ExamplePage3> with TickerProviderStateMixin {
                       offSetList:
                           valueList[1] == 0.25 ? offSetList : offSetList2,
                       animation: _animation,
-                      call: (offsetValue) async {
+                      callBack: (offsetValue) async {
                         if (offsetValue.length == 1) {
                           if (valueList[1] == 0.25) {
                             offSetList = offsetValue.first as List<Offset>;
