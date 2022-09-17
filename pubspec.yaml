@@ -1,6 +1,6 @@
 name: circle_scroll
 description: Widget for the circumference, you can build the coordinates.
-version: 0.0.4
+version: 0.0.41
 homepage: 'https://github.com/daisukenagata/circle_scroll'
 
 environment:

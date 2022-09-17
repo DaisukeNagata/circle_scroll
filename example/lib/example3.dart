@@ -182,7 +182,7 @@ class _ExampleState3 extends State<ExamplePage3> with TickerProviderStateMixin {
                     _animation = Tween(
                       begin: angleAnimationList.first,
                       end: angleAnimationList.last,
-                    ).chain(CurveTween(curve: Curves.easeIn)).animate(c);
+                    ).chain(CurveTween(curve: Curves.easeInOut)).animate(c);
                     c
                       ..reset()
                       ..forward();
