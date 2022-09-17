@@ -7,3 +7,6 @@
 
 ## 0.0.3
 * update documet -> environment
+
+## 0.0.4 CircleScrollAllAreaExpansion change logic
+

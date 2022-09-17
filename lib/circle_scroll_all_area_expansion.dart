@@ -73,7 +73,7 @@ class CircleScrollAllAreaExpansion extends StatelessWidget {
               for (var i = 0; i < (offSetList.length); i++)
                 Container(
                   transform: Matrix4.translationValues(
-                      size2Matrix.width - 15, size2Matrix.height - 15, 0),
+                      size2Matrix.width / 2, size2Matrix.height / 2, 0),
                   child: GestureDetector(
                     onTap: () {
                       call.call([offSetList, i]);
