@@ -180,8 +180,8 @@ class _ExampleState extends State<ExamplePage> with TickerProviderStateMixin {
   ) {
     return Container(
       color: Colors.black,
-      height: MediaQuery.of(context).size.height / 6,
       width: size.width,
+      height: MediaQuery.of(context).size.height / 6,
       margin: edgeInset,
       child: Stack(
         children: [

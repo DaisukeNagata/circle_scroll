@@ -1,37 +1,34 @@
-import 'package:circle_scroll/circle_scroll_area_expansion.dart';
-import 'package:circle_scroll_example/example3.dart';
+import 'package:circle_scroll/circle_scroll_all_area_expansion.dart';
 import 'package:flutter/material.dart';
 
-import 'example.dart';
-
-class Example2 extends StatelessWidget {
-  const Example2({super.key});
+class Example4 extends StatelessWidget {
+  const Example4({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const ExamplePage2();
+    return const ExamplePage3();
   }
 }
 
-class ExamplePage2 extends StatefulWidget {
-  const ExamplePage2({super.key});
+class ExamplePage3 extends StatefulWidget {
+  const ExamplePage3({super.key});
 
   @override
-  State<ExamplePage2> createState() => _ExampleState2();
+  State<ExamplePage3> createState() => _ExampleState3();
 }
 
-class _ExampleState2 extends State<ExamplePage2> with TickerProviderStateMixin {
+class _ExampleState3 extends State<ExamplePage3> with TickerProviderStateMixin {
   var _tex = '';
   var _initial = 0.0;
   var _distance = 0.0;
-  final double _addAngle = 0.05;
+  final double _addAngle = 0.25;
   List<double> angleAnimationList = [0.0, 0.0];
+
   final List<double> _valueList = [
-    0.9,
-    0.95,
-    0.0,
-    0.05,
-    0.1,
+    1,
+    0.75,
+    0.5,
+    0.25,
   ];
 
   List<Offset> offSetList = [];
@@ -63,40 +60,23 @@ class _ExampleState2 extends State<ExamplePage2> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    var w = MediaQuery.of(context).size.width;
-    var h = MediaQuery.of(context).size.height;
-    var t = TransformationController();
-    t.value = TransformationController().value = Matrix4.identity()
-      ..translate(-((h - w) / 2), 0);
+    var w = MediaQuery.of(context).size.width - 30;
+    var h = MediaQuery.of(context).size.width - 30;
 
     Size size = Size(w, h);
     return Scaffold(
-      backgroundColor: const Color(0xFF616161),
+      backgroundColor: Colors.transparent,
       appBar: AppBar(
         title: const Text('EverDaySoft'),
-        backgroundColor: Colors.black,
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return const Example3();
-                  },
-                ),
-              );
-            },
-            icon: const Icon(Icons.arrow_forward_ios),
-          )
-        ],
+        backgroundColor: Colors.transparent,
       ),
       body: Stack(
+        alignment: Alignment.center,
         children: [
           Container(
             height: MediaQuery.of(context).size.height,
             alignment: Alignment.topCenter,
-            width: size.width,
+            width: size.width + _widgetSize,
             child: Text(
               _tex,
               style: const TextStyle(color: Colors.white, fontSize: 30),
@@ -104,43 +84,9 @@ class _ExampleState2 extends State<ExamplePage2> with TickerProviderStateMixin {
             ),
           ),
           _def(
-            CircleType.one,
-            t,
-            EdgeInsets.only(
-              top: MediaQuery.of(context).size.height * 0.07,
-            ),
+            EdgeInsets.zero,
             size,
-            2.05,
-            _valueList,
-          ),
-          _def(
-            CircleType.two,
-            t,
-            EdgeInsets.only(
-              top: MediaQuery.of(context).size.height * 0.25,
-            ),
-            size,
-            2.03,
-            _valueList,
-          ),
-          _def(
-            CircleType.three,
-            t,
-            EdgeInsets.only(
-              top: MediaQuery.of(context).size.height * 0.45,
-            ),
-            size,
-            2.05,
-            _valueList,
-          ),
-          _def(
-            CircleType.four,
-            t,
-            EdgeInsets.only(
-              top: MediaQuery.of(context).size.height * 0.65,
-            ),
-            size,
-            2.1,
+            2,
             _valueList,
           ),
         ],
@@ -150,7 +96,6 @@ class _ExampleState2 extends State<ExamplePage2> with TickerProviderStateMixin {
 
   Widget _abc(List<Offset> offsetList) {
     return Container(
-      margin: const EdgeInsets.only(right: 0),
       width: _widgetSize,
       height: _widgetSize,
       decoration: const BoxDecoration(
@@ -161,24 +106,21 @@ class _ExampleState2 extends State<ExamplePage2> with TickerProviderStateMixin {
   }
 
   Widget _def(
-    CircleType type,
-    TransformationController t,
     EdgeInsetsGeometry edgeInset,
     Size size,
     double aliment,
     List<double> valueList,
   ) {
     return Container(
-      color: Colors.black,
-      width: size.width,
-      height: MediaQuery.of(context).size.height / 6,
+      alignment: Alignment.center,
+      color: Colors.transparent,
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.width,
       margin: edgeInset,
       child: Stack(
         children: [
-          InteractiveViewer(
-            constrained: false,
-            panEnabled: false,
-            transformationController: t,
+          Container(
+            color: Colors.grey,
             child: GestureDetector(
               behavior: HitTestBehavior.opaque,
               onPanStart: (DragStartDetails details) {
@@ -211,7 +153,7 @@ class _ExampleState2 extends State<ExamplePage2> with TickerProviderStateMixin {
                   _animation = Tween(
                     begin: angleAnimationList.first,
                     end: angleAnimationList.last,
-                  ).chain(CurveTween(curve: Curves.easeIn)).animate(c);
+                  ).chain(CurveTween(curve: Curves.easeInOut)).animate(c);
                   c
                     ..reset()
                     ..forward();
@@ -219,16 +161,22 @@ class _ExampleState2 extends State<ExamplePage2> with TickerProviderStateMixin {
               },
               child: Stack(
                 children: [
-                  CircleScrollAreaExpansion(
+                  CircleScrollAllAreaExpansion(
                     w: _abc(offSetList),
                     color: Colors.white,
-                    height: size.height,
+                    height: size.width,
                     aliment: aliment,
-                    marginList: typeList(type),
+                    size1Matrix: Size(_widgetSize, _widgetSize),
+                    size2Matrix: Size(_widgetSize, _widgetSize),
+                    sizeList: [
+                      Size(size.width - _widgetSize, size.width - _widgetSize),
+                      Size(size.width - _widgetSize, size.width - _widgetSize),
+                      Size(size.width - _widgetSize, size.width - _widgetSize),
+                    ],
                     valueList: valueList,
                     offSetList: offSetList,
                     animation: _animation,
-                    call: (offsetValue) async {
+                    callBack: (offsetValue) async {
                       if (offsetValue.length == 1) {
                         offSetList = offsetValue.first as List<Offset>;
                       } else {
@@ -246,18 +194,5 @@ class _ExampleState2 extends State<ExamplePage2> with TickerProviderStateMixin {
         ],
       ),
     );
-  }
-
-  List<double> typeList(CircleType type) {
-    if (type == CircleType.one) {
-      return [-_widgetSize, _widgetSize, _widgetSize];
-    } else if (type == CircleType.two) {
-      return [0, 0, _widgetSize];
-    } else if (type == CircleType.three) {
-      return [_widgetSize, _widgetSize, _widgetSize];
-    } else if (type == CircleType.four) {
-      return [_widgetSize * 2, _widgetSize * 2, _widgetSize];
-    }
-    return [];
   }
 }

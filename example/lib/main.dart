@@ -166,8 +166,8 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   ) {
     return Container(
       color: Colors.black,
-      height: MediaQuery.of(context).size.height / 4,
       width: size.width,
+      height: MediaQuery.of(context).size.height / 4,
       margin: edgeInset,
       child: Stack(
         children: [

@@ -1,4 +1,5 @@
 import 'package:circle_scroll/circle_scroll_all_area_expansion.dart';
+import 'package:circle_scroll_example/example4.dart';
 import 'package:flutter/material.dart';
 
 class Example3 extends StatelessWidget {
@@ -80,6 +81,21 @@ class _ExampleState3 extends State<ExamplePage3> with TickerProviderStateMixin {
       appBar: AppBar(
         title: const Text('EverDaySoft'),
         backgroundColor: Colors.transparent,
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return const Example4();
+                  },
+                ),
+              );
+            },
+            icon: const Icon(Icons.arrow_forward_ios),
+          )
+        ],
       ),
       body: Stack(
         children: [
@@ -136,8 +152,8 @@ class _ExampleState3 extends State<ExamplePage3> with TickerProviderStateMixin {
   ) {
     return Container(
       color: Colors.transparent,
-      height: MediaQuery.of(context).size.width / 1.5,
       width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.width / 1.5,
       margin: edgeInset,
       child: Stack(
         children: [

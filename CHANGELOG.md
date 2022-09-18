@@ -25,3 +25,7 @@
 ## 0.0.43
 
 * Change tap area
+
+## 0.0.44
+
+* add Widget
