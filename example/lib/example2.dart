@@ -111,7 +111,6 @@ class _ExampleState2 extends State<ExamplePage2> with TickerProviderStateMixin {
             ),
             size,
             2.05,
-            _widgetSize / 2,
             _valueList,
           ),
           _def(
@@ -122,7 +121,6 @@ class _ExampleState2 extends State<ExamplePage2> with TickerProviderStateMixin {
             ),
             size,
             2.03,
-            _widgetSize / 2,
             _valueList,
           ),
           _def(
@@ -133,7 +131,6 @@ class _ExampleState2 extends State<ExamplePage2> with TickerProviderStateMixin {
             ),
             size,
             2.05,
-            _widgetSize / 2,
             _valueList,
           ),
           _def(
@@ -144,7 +141,6 @@ class _ExampleState2 extends State<ExamplePage2> with TickerProviderStateMixin {
             ),
             size,
             2.1,
-            _widgetSize / 2,
             _valueList,
           ),
         ],
@@ -170,7 +166,6 @@ class _ExampleState2 extends State<ExamplePage2> with TickerProviderStateMixin {
     EdgeInsetsGeometry edgeInset,
     Size size,
     double aliment,
-    double margin,
     List<double> valueList,
   ) {
     return Container(

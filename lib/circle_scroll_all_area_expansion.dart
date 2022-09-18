@@ -43,7 +43,10 @@ class CircleScrollAllAreaExpansion extends StatelessWidget {
             children: [
               Container(
                 transform: Matrix4.translationValues(
-                    size1Matrix.width, size1Matrix.height, 0),
+                  size1Matrix.width,
+                  size1Matrix.height,
+                  0,
+                ),
                 width: sizeList[1].width,
                 height: sizeList[1].height,
                 decoration: BoxDecoration(
@@ -53,7 +56,10 @@ class CircleScrollAllAreaExpansion extends StatelessWidget {
               ),
               Container(
                 transform: Matrix4.translationValues(
-                    size2Matrix.width, size2Matrix.height, 0),
+                  size2Matrix.width,
+                  size2Matrix.height,
+                  0,
+                ),
                 width: sizeList[2].width,
                 height: sizeList[2].height,
                 decoration: BoxDecoration(
@@ -70,10 +76,13 @@ class CircleScrollAllAreaExpansion extends StatelessWidget {
                   ),
                 ),
               ),
-              for (var i = 0; i < (offSetList.length); i++)
+              for (var i = 0; i < offSetList.length; i++)
                 Container(
                   transform: Matrix4.translationValues(
-                      size2Matrix.width / 2, size2Matrix.height / 2, 0),
+                    size2Matrix.width / 2,
+                    size2Matrix.height / 2,
+                    0,
+                  ),
                   child: GestureDetector(
                     onTap: () {
                       callBack.call([offSetList, i]);

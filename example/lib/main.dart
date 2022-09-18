@@ -209,6 +209,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                     end: angleAnimationList.last,
                   ).chain(CurveTween(curve: Curves.slowMiddle)).animate(c);
                   c
+                    ..duration = Duration(milliseconds: animationValue)
                     ..reset()
                     ..forward();
                 });
@@ -221,8 +222,8 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                     height: size.height,
                     aliment: aliment,
                     marginList: flg
-                        ? [0, _widgetSize, _widgetSize]
-                        : [0, _widgetSize, _widgetSize],
+                        ? [-_widgetSize, _widgetSize, _widgetSize]
+                        : [_widgetSize, _widgetSize, _widgetSize],
                     valueList: valueList,
                     offSetList: flg ? offSetList : offSetList2,
                     animation: _animation,

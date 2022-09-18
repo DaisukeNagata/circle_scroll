@@ -21,3 +21,7 @@
 ## 0.0.42
 
 * CircleScroll change property name
+
+## 0.0.43
+
+* Change tap area
