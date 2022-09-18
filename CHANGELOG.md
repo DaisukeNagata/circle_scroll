@@ -29,3 +29,7 @@
 ## 0.0.44
 
 * add Widget
+
+## 0.0.45
+
+* add Widget
