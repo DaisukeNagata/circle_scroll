@@ -1,17 +1,15 @@
 name: circle_scroll
 description: Widget for the circumference, you can build the coordinates.
-version: 0.0.45
+version: 0.0.5
 homepage: 'https://github.com/daisukenagata/circle_scroll'
 
 environment:
-  sdk: '>=2.17.0 <3.0.0'
-  flutter: ">=2.5.0"
+  sdk: '>=2.18.6 <3.0.0'
+  flutter: '>=3.3.10'
 
 dependencies:
   flutter:
     sdk: flutter
-  plugin_platform_interface: ^2.0.2
-
 dev_dependencies:
   flutter_test:
     sdk: flutter

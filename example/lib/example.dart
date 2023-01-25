@@ -75,6 +75,7 @@ class _ExampleState extends State<ExamplePage> with TickerProviderStateMixin {
       ..translate(-((h - w) / 2), -h / 2);
 
     Size size = Size(w, h);
+    
     return Scaffold(
       backgroundColor: const Color(0xFF616161),
       appBar: AppBar(
